@@ -1,17 +1,13 @@
 #include "playerlist.h"
+#include <QStandardPaths>
+#include <QDebug>
+#include <QStringList>
 
-static QString PATH = QDir::homePath();
-//static QString PATHH = QStandardPaths::
+static QString PATH = QStandardPaths::writableLocation(QStandardPaths::MusicLocation);
 
 PlayerList::PlayerList(QObject *parent) : QAbstractListModel(parent)
 {
-    //    m_data.append("old");
-    //    m_data.append("another old");
-    qDebug() << PATH;
-    QDir way(PATH);
-    QStringList filters;
-    filters << "*.mp3";
-    m_data = way.entryInfoList(filters, QDir::AllEntries | QDir::NoDotAndDotDot);
+    updateData();
 }
 
 QVariant PlayerList::data(const QModelIndex &index, int role) const
@@ -23,20 +19,11 @@ QVariant PlayerList::data(const QModelIndex &index, int role) const
     switch (role) {
     case Name:
         return m_data[index.row()].fileName();
-        //            return QVariant(index.row() < 2 ? "orange" : "skyblue");
-//    case Duration:
-//        return m_data;
+    case Path:
+        return m_data[index.row()].filePath();
     default:
         return QVariant();
     }
-    //    switch (role) {
-    //    case ColorRole:
-    //        return QVariant(index.row() < 2 ? "orange" : "skyblue");
-    //    case TextRole:
-    //        return m_data.at(index.row());
-    //    default:
-    //        return QVariant();
-    //    }
 }
 
 int PlayerList::rowCount(const QModelIndex &parent) const
@@ -52,20 +39,14 @@ QHash<int, QByteArray> PlayerList::roleNames() const
 {
     QHash<int, QByteArray> roles = QAbstractListModel::roleNames();
     roles[Name] = "name";
-//            roles[Duration] = "duration";
-    //    QHash<int, QByteArray> roles = QAbstractListModel::roleNames();
-    //    roles[ColorRole] = "color";
-    //    roles[TextRole] = "text";
+    roles[Path] = "path";
     return roles;
 }
 
-//void PlayerList::add()
-//{
-//    beginInsertRows(QModelIndex(), m_data.size(), m_data.size());
-//    m_data.append("new");
-//    endInsertRows();
-
-//    m_data[0] = QString("Size: %1").arg(m_data.size());
-//    QModelIndex index = createIndex(0, 0, static_cast<void *>(0));
-//    emit dataChanged(index, index);
-//}
+void PlayerList::updateData()
+{
+    QDir way(PATH);
+    QStringList filters;
+    filters << "*.mp3";
+    m_data = way.entryInfoList(filters, QDir::AllEntries | QDir::NoDotAndDotDot);
+}

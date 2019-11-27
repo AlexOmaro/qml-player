@@ -3,10 +3,7 @@
 
 #include <QObject>
 #include <QAbstractListModel>
-#include <QStringList>
 #include <QDir>
-#include <QStandardPaths>
-#include <QDebug>
 
 class PlayerList : public QAbstractListModel
 {
@@ -14,20 +11,16 @@ class PlayerList : public QAbstractListModel
 public:
     enum Roles {
         Name,
-//        Duration
+        Path
     };
-//    enum Roles {
-//        ColorRole = Qt::UserRole + 1,
-//        TextRole
-//    };
 
     PlayerList(QObject *parent = nullptr);
 
-    int rowCount(const QModelIndex &parent) const;
-    QVariant data(const QModelIndex& index, int Role = Qt::DisplayRole) const;
-    QHash<int, QByteArray> roleNames() const;
+    int rowCount(const QModelIndex &parent) const override;
+    QVariant data(const QModelIndex& index, int Role = Qt::DisplayRole) const override;
+    QHash<int, QByteArray> roleNames() const override;
 
-//    Q_INVOKABLE void add();
+    void updateData();
 
 private:
     QList<QFileInfo> m_data;
