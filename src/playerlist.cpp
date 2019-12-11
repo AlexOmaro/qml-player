@@ -47,7 +47,7 @@ void PlayerList::updateData()
 {
 	QDir way(PATH);
 	QStringList filters;
-	filters << "*.mp3";
+	filters << "*.mp3" << "*.flac" << "*.FLAC";
 
 	QList<QFileInfo>list = way.entryInfoList(filters, QDir::AllEntries | QDir::NoDotAndDotDot);
 	for(auto iter: list)

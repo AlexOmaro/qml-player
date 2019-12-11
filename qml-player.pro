@@ -23,3 +23,5 @@ HEADERS += \
     src/player.h
 
 INCLUDEPATH += src
+
+DISTFILES += \
