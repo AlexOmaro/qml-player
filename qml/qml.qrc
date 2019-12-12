@@ -2,10 +2,10 @@
     <qresource prefix="/">
         <file>main.qml</file>
         <file>PlayList.qml</file>
-        <file>PlayerFace.qml</file>
-        <file>StartButton.qml</file>
-        <file>StopButton.qml</file>
-        <file>PauseButton.qml</file>
+        <file>PlayerView.qml</file>
+        <file>HomePage.qml</file>
+        <file>ListItem.qml</file>
+        <file>MasterButton.qml</file>
     </qresource>
     <qresource prefix="/icons">
         <file alias="stop">icons/stop_icon.png</file>

@@ -1,6 +1,7 @@
 import QtQuick 2.12
 import QtQuick.Window 2.12
-import playerlistModule 1.0
+
+import space.developers 1.0
 
 Window {
 	visible: true
@@ -9,17 +10,16 @@ Window {
 	title: qsTr("Player")
 	color: "#3E0105"
 
-	Column {
-		height: parent.height
-		width: parent.width
-		spacing: 2
+	HomePage {
+		id: homePage
+		anchors.fill: parent
+	}
 
-		PlayerFace {
+	Player {
+		id: player
+	}
 
-		}
-
-		PlayList {
-
-		}
+	PlayerList {
+		id: dataModel
 	}
 }
