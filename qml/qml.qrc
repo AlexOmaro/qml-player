@@ -1,5 +1,16 @@
 <RCC>
     <qresource prefix="/">
         <file>main.qml</file>
+        <file>PlayList.qml</file>
+        <file>PlayerView.qml</file>
+        <file>HomePage.qml</file>
+        <file>ListItem.qml</file>
+        <file>MasterButton.qml</file>
+        <file>PlayTimer.qml</file>
+    </qresource>
+    <qresource prefix="/icons">
+        <file alias="stop">icons/stop_icon.png</file>
+        <file alias="play">icons/play_icon.png</file>
+        <file alias="pause">icons/pause_icon.png</file>
     </qresource>
 </RCC>
