@@ -2,7 +2,6 @@ import QtQuick 2.0
 
 Rectangle {
 	id: root
-	width: parent.width
 	color: "#512023" // crimson
 	property var icons: ["/icons/pause", "/icons/play", "/icons/stop"]
 
@@ -15,7 +14,6 @@ Rectangle {
 		Repeater {
 			model: icons
 			delegate: MasterButton {
-				height: parent.height
 				width: parent.width / icons.length
 			}
 		}

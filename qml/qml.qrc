@@ -6,6 +6,9 @@
         <file>HomePage.qml</file>
         <file>ListItem.qml</file>
         <file>MasterButton.qml</file>
+        <file>TimeWatcher.qml</file>
+        <file>PlayerTimerSingleton.qml</file>
+        <file>qmldir</file>
     </qresource>
     <qresource prefix="/icons">
         <file alias="stop">icons/stop_icon.png</file>

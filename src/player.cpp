@@ -35,3 +35,8 @@ void Player::resume()
 	if(m_player.state() == QMediaPlayer::PausedState)
 		m_player.play();
 }
+
+qint64 Player::position() const
+{
+	return m_player.position();
+}

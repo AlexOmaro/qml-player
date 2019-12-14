@@ -6,8 +6,7 @@ Rectangle {
 
 	ListView {
 		model: dataModel
-		width: parent.width
-		height: parent.height
+		anchors.fill: parent
 		clip: true
 
 		delegate: ListItem {

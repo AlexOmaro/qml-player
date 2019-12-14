@@ -5,6 +5,8 @@ import space.developers 1.0
 
 Window {
 	visible: true
+	minimumWidth: 300
+	minimumHeight: 600
 	width: 600
 	height: 800
 	title: qsTr("Player")
@@ -17,6 +19,7 @@ Window {
 
 	Player {
 		id: player
+		Component.onCompleted: PlayerTimerSingleton.player = player
 	}
 
 	PlayerList {

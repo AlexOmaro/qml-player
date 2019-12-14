@@ -5,6 +5,7 @@ Rectangle {
 	id: root
 	signal clicked()
 	color: "transparent"
+	height: icon.height
 
 	RadialGradient {
 		anchors.fill: parent
@@ -15,6 +16,7 @@ Rectangle {
 	}
 
 	Image {
+		id: icon
 		anchors.centerIn: parent
 		fillMode: Image.PreserveAspectFit
 		source: icons[model.index]

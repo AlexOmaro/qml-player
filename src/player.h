@@ -18,6 +18,8 @@ public:
 	Q_INVOKABLE void pause();
 	Q_INVOKABLE void resume();
 
+	Q_INVOKABLE qint64 position() const; // Get current position
+
 private:
 	QMediaPlayer m_player;
 };
