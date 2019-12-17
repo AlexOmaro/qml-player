@@ -15,9 +15,14 @@ Column {
 		width: parent.width
 
 		TimeWatcher {
-			anchors.fill:parent
+			height: parent.height
+			width: parent.width / 2
 		}
-		//Here will be volume slider
+
+		VolumeSlider {
+			height: parent.height
+			width: parent.width / 2
+		}
 	}
 
 	PlayList {

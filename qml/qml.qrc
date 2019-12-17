@@ -9,6 +9,7 @@
         <file>TimeWatcher.qml</file>
         <file>PlayerTimerSingleton.qml</file>
         <file>qmldir</file>
+        <file>VolumeSlider.qml</file>
     </qresource>
     <qresource prefix="/icons">
         <file alias="stop">icons/stop_icon.png</file>
