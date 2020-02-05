@@ -10,6 +10,25 @@ Column {
             model: icons
             delegate: MasterButton {
                 width: parent.width / icons.length
+
+                onClicked:{
+                    switch(model.index)
+                          {
+                          case 0:
+                              player.pause()
+                              PlayerTimerSingleton.start()
+                          break;
+                          case 1:
+                              player.resume()
+                              PlayerTimerSingleton.start()
+                          break;
+                          case 2:
+                              player.stop()
+                          break;
+
+                          }
+                }
+
             }
         }
     }
