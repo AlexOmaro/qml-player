@@ -11,7 +11,7 @@ Column {
             delegate: MasterButton {
                 width: parent.width / icons.length
 
-                onClicked: switchBootns(model.index)
+                onClicked: executeButtonEvent(model.index)
             }
         }
     }
@@ -31,26 +31,20 @@ Column {
         }
     }
 
-    function switchBootns (index)
-    {
-        switch (index){
-              case 0://Пауза
+    function executeButtonEvent(index) {
+        switch (index) {
+              case 0://pause bottom
                   player.pause()
-                  PlayerTimerSingleton.start()
-              break
-              case 1://Возобновление
+                  PlayerTimerSingleton.stop()
+                break
+              case 1://resume bottom
                   player.resume()
                   PlayerTimerSingleton.start()
-              break
-              case 2:
+                break
+              case 2://stop bottom
                   player.stop()
                   PlayerTimerSingleton.stop()
-              break
+                break
         }
     }
-
 }
-
-
-
-

@@ -24,6 +24,4 @@ Window {
     PlayerList {
         id: dataModel
     }
-
-
 }
