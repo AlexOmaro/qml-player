@@ -33,15 +33,15 @@ Column {
 
     function executeButtonEvent(index) {
         switch (index) {
-              case 0: // pause botton
+              case 0: // pause button
                   player.pause()
                   PlayerTimerSingleton.stop()
                   break
-              case 1: // resume botton
+              case 1: // resume button
                   player.resume()
                   PlayerTimerSingleton.start()
                   break
-              case 2: // stop botton
+              case 2: // stop button
                   player.stop()
                   PlayerTimerSingleton.stop()
                   break
