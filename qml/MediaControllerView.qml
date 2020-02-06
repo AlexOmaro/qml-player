@@ -11,24 +11,7 @@ Column {
             delegate: MasterButton {
                 width: parent.width / icons.length
 
-                onClicked:{
-                    switch(model.index)
-                          {
-                          case 0:
-                              player.pause()
-                              PlayerTimerSingleton.start()
-                          break;
-                          case 1:
-                              player.resume()
-                              PlayerTimerSingleton.start()
-                          break;
-                          case 2:
-                              player.stop()
-                          break;
-
-                          }
-                }
-
+                onClicked: switchBootns(model.index)
             }
         }
     }
@@ -47,4 +30,27 @@ Column {
             width: parent.width / 2
         }
     }
+
+    function switchBootns (index)
+    {
+        switch (index){
+              case 0://Пауза
+                  player.pause()
+                  PlayerTimerSingleton.start()
+              break
+              case 1://Возобновление
+                  player.resume()
+                  PlayerTimerSingleton.start()
+              break
+              case 2:
+                  player.stop()
+                  PlayerTimerSingleton.stop()
+              break
+        }
+    }
+
 }
+
+
+
+
