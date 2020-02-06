@@ -33,18 +33,18 @@ Column {
 
     function executeButtonEvent(index) {
         switch (index) {
-              case 0://pause bottom
+              case 0: // pause botton
                   player.pause()
                   PlayerTimerSingleton.stop()
-                break
-              case 1://resume bottom
+                  break
+              case 1: // resume botton
                   player.resume()
                   PlayerTimerSingleton.start()
-                break
-              case 2://stop bottom
+                  break
+              case 2: // stop botton
                   player.stop()
                   PlayerTimerSingleton.stop()
-                break
+                  break
         }
     }
 }
