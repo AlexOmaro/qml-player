@@ -1,4 +1,5 @@
 #include "player.h"
+#include "playerlist.h"
 
 #include <QString>
 #include <QDir>
@@ -33,7 +34,27 @@ void Player::pause()
 void Player::resume()
 {
 	if(m_player.state() == QMediaPlayer::PausedState)
-		m_player.play();
+        m_player.play();
+}
+
+void Player::removeFile(const QString &path)
+{
+    QFile mFile(path);
+    if (mFile.exists()) {
+        mFile.remove();
+    } else {
+        qDebug() << "Файл не найден!";
+    }
+}
+
+void Player::renameFile(const QString &path, const QString &newName)
+{
+    QFile mFile(path);
+    if (mFile.exists()) {
+        mFile.rename(path + newName);
+    } else {
+        qDebug() << "Файл не найден!";
+    }
 }
 
 qint64 Player::position() const

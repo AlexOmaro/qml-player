@@ -1,1 +1,2 @@
 singleton PlayerTimerSingleton 1.0 PlayerTimerSingleton.qml
+singleton PathItemSingleton 1.0 PathItemSingleton.qml

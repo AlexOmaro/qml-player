@@ -10,6 +10,10 @@
         <file>PlayerTimerSingleton.qml</file>
         <file>qmldir</file>
         <file>VolumeSlider.qml</file>
+        <file>RightButtonMenu.qml</file>
+        <file>MenuButton.qml</file>
+        <file>PathItemSingleton.qml</file>
+        <file>RenameWindow.qml</file>
     </qresource>
     <qresource prefix="/icons">
         <file alias="stop">icons/stop_icon.png</file>

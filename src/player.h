@@ -1,8 +1,6 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 
-#pragma once
-
 #include <QObject>
 #include <QMediaPlayer>
 
@@ -17,6 +15,9 @@ public:
 	Q_INVOKABLE void stop();
 	Q_INVOKABLE void pause();
 	Q_INVOKABLE void resume();
+
+    Q_INVOKABLE void removeFile(const QString &path);
+    Q_INVOKABLE void renameFile(const QString &path, const QString &newName);
 
 	Q_INVOKABLE qint64 position() const; // Get current position
 

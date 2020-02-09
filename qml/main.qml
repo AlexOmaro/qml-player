@@ -24,4 +24,23 @@ Window {
     PlayerList {
         id: dataModel
     }
+
+    RightButtonMenu {
+        id: menu
+        visible: false
+        onSignalExit: {
+            menu.visible = false
+        }
+    }
+
+    RenameWindow {
+        id: renameWindow
+        widthRenameWindow: parent.width / 2
+        heightRenameWindow: parent.height / 2
+        visible: false
+        onSignalRenameWindowExit: {
+            player.renameFile(PathItemSingleton.itemPath, textForRename)
+            renameWindow.visible = false
+        }
+    }
 }
