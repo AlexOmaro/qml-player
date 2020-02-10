@@ -37,26 +37,6 @@ void Player::resume()
         m_player.play();
 }
 
-void Player::removeFile(const QString &path)
-{
-    QFile mFile(path);
-    if (mFile.exists()) {
-        mFile.remove();
-    } else {
-        qDebug() << "Файл не найден!";
-    }
-}
-
-void Player::renameFile(const QString &path, const QString &newName)
-{
-    QFile mFile(path);
-    if (mFile.exists()) {
-        mFile.rename(path + newName);
-    } else {
-        qDebug() << "Файл не найден!";
-    }
-}
-
 qint64 Player::position() const
 {
 	return m_player.position();

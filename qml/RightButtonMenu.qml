@@ -32,7 +32,7 @@ Item {
                 colorButton: "white"
                 colorText: "black"
                 onButtonClicked: {
-                    player.removeFile(PathItemSingleton.itemPath)
+                    fileEngine.removeFile(PathItemSingleton.itemPath)
                     signalExit()
                 }
             }

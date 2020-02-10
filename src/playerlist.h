@@ -6,6 +6,7 @@
 #include <QObject>
 #include <QAbstractListModel>
 #include <QDir>
+#include <QFileSystemWatcher>
 
 class PlayerList : public QAbstractListModel
 {
@@ -22,10 +23,17 @@ public:
 	QVariant data(const QModelIndex &index, int Role = Qt::DisplayRole) const override;
 	QHash<int, QByteArray> roleNames() const override;
 
-	void updateData();
+    void updateData();
+    void listOfPath();
+
+    static void updateDataAnother();
 
 private:
 	QList<Data> m_data;
+    QFileSystemWatcher object;
+
+private slots:
+    void updateDir();
 };
 
 #endif // PLAYERLIST_H

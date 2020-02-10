@@ -3,6 +3,7 @@
 
 #include "playerlist.h"
 #include "player.h"
+#include "fileengine.h"
 
 int main(int argc, char *argv[])
 {
@@ -12,6 +13,7 @@ int main(int argc, char *argv[])
 
 	qmlRegisterType<PlayerList>("space.developers", 1, 0, "PlayerList");
 	qmlRegisterType<Player>("space.developers", 1, 0, "Player");
+    qmlRegisterType<FileEngine>("space.developers", 1, 0, "FileEngine");
 
 	QQmlApplicationEngine engine;
 	const QUrl url(QStringLiteral("qrc:/main.qml"));

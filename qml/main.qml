@@ -25,6 +25,10 @@ Window {
         id: dataModel
     }
 
+    FileEngine {
+        id: fileEngine
+    }
+
     RightButtonMenu {
         id: menu
         visible: false
@@ -39,7 +43,7 @@ Window {
         heightRenameWindow: parent.height / 2
         visible: false
         onSignalRenameWindowExit: {
-            player.renameFile(PathItemSingleton.itemPath, textForRename)
+            fileEngine.renameFile(PathItemSingleton.itemPath, textForRename)
             renameWindow.visible = false
         }
     }

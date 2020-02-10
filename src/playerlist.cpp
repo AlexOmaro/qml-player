@@ -8,6 +8,8 @@ static QString PATH = QStandardPaths::writableLocation(QStandardPaths::MusicLoca
 
 PlayerList::PlayerList(QObject *parent) : QAbstractListModel(parent)
 {
+    object.addPath(PATH);
+    listOfPath();
 	updateData();
 }
 
@@ -45,11 +47,25 @@ QHash<int, QByteArray> PlayerList::roleNames() const
 
 void PlayerList::updateData()
 {
+    m_data.clear();
 	QDir way(PATH);
 	QStringList filters;
 	filters << "*.mp3" << "*.flac";
 
 	QList<QFileInfo>list = way.entryInfoList(filters, QDir::AllEntries | QDir::NoDotAndDotDot);
 	for(auto iter: list)
-		m_data.append(Data(iter.fileName(), iter.filePath()));
+        m_data.append(Data(iter.fileName(), iter.filePath()));
+    beginResetModel();
+    endResetModel();
+}
+
+void PlayerList::listOfPath()
+{
+    QObject::connect(&object, &QFileSystemWatcher::directoryChanged, this, &PlayerList::updateDir);
+}
+
+void PlayerList::updateDir()
+{
+    qDebug() << "Слот Вызван";
+    updateData();
 }
