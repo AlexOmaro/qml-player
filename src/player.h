@@ -9,7 +9,6 @@
 class Player : public QObject
 {
 	Q_OBJECT
-
 public:
 	explicit Player(QObject *parent = nullptr);
 
@@ -24,8 +23,22 @@ public:
 
 	int volume() const;
 
+    enum State{IdleState,PausedState,PlayingState};
+
+    State getState() const;
+
 private:
-	QMediaPlayer m_player;
+    void setState(State state);
+
+signals:
+    void stateChanged(State state);
+
+private:
+    QMediaPlayer m_player;
+
+    State m_state;
+
+    Q_PROPERTY(State state READ getState WRITE setState NOTIFY stateChanged)
 };
 
 #endif // PLAYER_H
