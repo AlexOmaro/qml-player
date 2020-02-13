@@ -11,7 +11,7 @@ Player::Player(QObject *parent) : QObject(parent)
 
 void Player::start(const QString &path)
 {
-    if( m_state != IdleState)
+    if (m_state != IdleState)
 		m_player.stop();
 
 	m_player.setMedia(QUrl::fromLocalFile(path));
@@ -21,26 +21,32 @@ void Player::start(const QString &path)
 
 void Player::stop()
 {
-    if( m_state != IdleState)
+    if (m_state != IdleState) {
+
 		m_player.stop();
 
-    setState (IdleState);
+        setState (IdleState);
+    }
 }
 
 void Player::pause()
 {
-    if(m_state == PlayingState)
-		m_player.pause();
+    if (m_state == PlayingState) {
 
-    setState (PausedState);
+        m_player.pause();
+
+        setState (PausedState);
+    }
 }
 
 void Player::resume()
 {
-    if(m_state == PausedState)
+    if (m_state == PausedState) {
+
 		m_player.play();
 
-    setState (PlayingState);
+        setState (PlayingState);
+     }
 }
 
 qint64 Player::position() const
@@ -58,7 +64,7 @@ int Player::volume() const
     return m_player.volume();
 }
 
-Player::State Player::getState() const
+Player::State Player::state() const
 {
     return m_state;
 }
@@ -71,8 +77,3 @@ void Player::setState(Player::State state)
     m_state = state;
     emit stateChanged(m_state);
 }
-
-
-
-
-

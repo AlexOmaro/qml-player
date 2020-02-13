@@ -23,9 +23,15 @@ public:
 
 	int volume() const;
 
-    enum State{IdleState,PausedState,PlayingState};
+    enum State {
+        IdleState,
+        PausedState,
+        PlayingState
+    };
 
-    State getState() const;
+    Q_ENUM(State)
+
+    State state() const;
 
 private:
     void setState(State state);
@@ -38,7 +44,7 @@ private:
 
     State m_state;
 
-    Q_PROPERTY(State state READ getState WRITE setState NOTIFY stateChanged)
+    Q_PROPERTY(State state READ state NOTIFY stateChanged)
 };
 
 #endif // PLAYER_H
