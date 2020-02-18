@@ -4,7 +4,7 @@
 #include <QDir>
 #include <QUrl>
 
-Player::Player(QObject *parent) : QObject(parent),m_state{IdleState}
+Player::Player(QObject *parent) : QObject(parent), m_state{IdleState}
 {
 
 }
@@ -12,16 +12,16 @@ Player::Player(QObject *parent) : QObject(parent),m_state{IdleState}
 void Player::start(const QString &path)
 { 
     if (m_state == IdleState) {
-           m_player.setMedia(QUrl::fromLocalFile(path));
-           m_player.play();
-           setState(PlayingState);
-     }
+        m_player.setMedia(QUrl::fromLocalFile(path));
+        m_player.play();
+        setState(PlayingState);
+    }
 }
 
 void Player::stop()
 {
     if (m_state != IdleState) {
-		m_player.stop();
+        m_player.stop();
         setState (IdleState);
     }
 }
@@ -37,14 +37,14 @@ void Player::pause()
 void Player::resume()
 {
     if (m_state == PausedState) {
-		m_player.play();
+        m_player.play();
         setState (PlayingState);
-     }
+    }
 }
 
 qint64 Player::position() const
 {
-	return m_player.position();
+    return m_player.position();
 }
 
 void Player::setVolume(const int &value)
