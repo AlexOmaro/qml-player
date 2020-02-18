@@ -22,7 +22,7 @@ void Player::stop()
 {
     if (m_state != IdleState) {
         m_player.stop();
-        setState (IdleState);
+        setState(IdleState);
     }
 }
 
@@ -30,7 +30,7 @@ void Player::pause()
 {
     if (m_state == PlayingState) {
         m_player.pause();
-        setState (PausedState);
+        setState(PausedState);
     }
 }
 
@@ -38,7 +38,7 @@ void Player::resume()
 {
     if (m_state == PausedState) {
         m_player.play();
-        setState (PlayingState);
+        setState(PlayingState);
     }
 }
 
