@@ -1,4 +1,4 @@
-import QtQuick 2.0
+import QtQuick 2.4
 
 Rectangle {
 	color: "#512023" // crimson
@@ -9,10 +9,8 @@ Rectangle {
 		clip: true
 
 		delegate: ListItem {
-			onClicked: {
-				player.start(model.path);
-				PlayerTimerSingleton.start();
-			}
+			onDoubleClicked: model.isDir ? dataModel.goToDir(model.path) :
+										   console.log('not dir')
 		}
 	}
 }

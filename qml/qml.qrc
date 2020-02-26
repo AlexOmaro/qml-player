@@ -10,6 +10,9 @@
         <file>PlayerTimerSingleton.qml</file>
         <file>qmldir</file>
         <file>VolumeSlider.qml</file>
+        <file>ExplorerWindow.qml</file>
+        <file>ExplorerButton.qml</file>
+        <file>ExplorerList.qml</file>
     </qresource>
     <qresource prefix="/icons">
         <file alias="stop">icons/stop_icon.png</file>

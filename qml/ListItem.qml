@@ -4,6 +4,7 @@ import QtGraphicalEffects 1.12
 Rectangle {
 	id: root
 	signal clicked()
+	signal doubleClicked()
 	width: parent.width
 	height: text.height + 0.9 * text.height
 	color: "transparent"
@@ -25,7 +26,7 @@ Rectangle {
 			verticalCenter: parent.verticalCenter
 		}
 		font.pixelSize: 30
-		color: "#A98971"
+		color: model.isDir ? "black" : "#A98971" //#A98971 - crimson
 		text: model.name
 	}
 
@@ -33,5 +34,6 @@ Rectangle {
 		id: targetArea
 		anchors.fill: parent
 		onClicked: root.clicked()
+		onDoubleClicked: root.doubleClicked()
 	}
 }
